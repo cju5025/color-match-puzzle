@@ -1,7 +1,8 @@
-const grid = document.querySelector('.grid')
+const grid = document.querySelector('#grid')
 const width = 8
 const squares = []
 let score = 0
+const scoreDisplay = document.getElementById('score')
 
 const colors = [
     'red', 
@@ -96,6 +97,10 @@ function moveDown () {
     }
 }
 
+function updateScore () {
+    scoreDisplay.innerHTML = score
+}
+
 
 function checkRowForThree () {
     for (i = 0; i < 62; i++) {
@@ -103,12 +108,12 @@ function checkRowForThree () {
         let decidedColor = squares[i].style.backgroundColor
         const isBlank = squares[i].style.backgroundColor === ''
 
-        
         const notValid = [6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55]
         if (notValid.includes(i)) continue
 
         if (rowOfThree.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
-            score += 3;    
+            score += 3;
+            updateScore();    
             rowOfThree.forEach(index => {
                 squares[index].style.backgroundColor = ''
             })
@@ -122,12 +127,12 @@ function checkRowForFour () {
         let decidedColor = squares[i].style.backgroundColor
         const isBlank = squares[i].style.backgroundColor === ''
 
-        
         const notValid = [5, 6, 7, 13, 14, 15, 21, 22, 23, 29, 30, 31, 38, 39, 45, 46, 47, 53, 54, 55]
         if (notValid.includes(i)) continue
 
         if (rowOfFour.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
-            score += 4;    
+            score += 4;
+            updateScore();    
             rowOfFour.forEach(index => {
                 squares[index].style.backgroundColor = ''
             })
@@ -146,7 +151,8 @@ function checkRowForFive () {
         if (notValid.includes(i)) continue
 
         if (rowOfFive.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
-            score += 5;    
+            score += 5;
+            updateScore();    
             rowOfFive.forEach(index => {
                 squares[index].style.backgroundColor = ''
             })
@@ -161,7 +167,8 @@ function checkColumnForThree () {
         const isBlank = squares[i].style.backgroundColor === ''
 
         if (columnOfThree.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
-            score += 3;    
+            score += 3;
+            updateScore();    
             columnOfThree.forEach(index => {
                 squares[index].style.backgroundColor = ''
             })
@@ -176,7 +183,8 @@ function checkColumnForFour() {
         const isBlank = squares[i].style.backgroundColor === ''
 
         if (columnOfFour.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
-            score += 4;    
+            score += 4;
+            updateScore();    
             columnOfFour.forEach(index => {
                 squares[index].style.backgroundColor = ''
             })
@@ -191,7 +199,8 @@ function checkColumnForFive() {
         const isBlank = squares[i].style.backgroundColor === ''
 
         if (columnOfFive.every(index => squares[index].style.backgroundColor === decidedColor && !isBlank)) {
-            score += 5;    
+            score += 5;
+            updateScore();    
             columnOfFive.forEach(index => {
                 squares[index].style.backgroundColor = ''
             })

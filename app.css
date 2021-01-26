@@ -1,13 +1,43 @@
-.grid {
-    height: 560px;
-    width: 560px;
+#main {
     display: flex;
-    flex-wrap: wrap;
-    /* background-color: bisque; */
+    justify-content: center;
 }
 
-.grid div {
-    height: 70px;
-    width: 70px;
+#background-image {
+    z-index: -1;
+    position: fixed;
+    height: 75vh;
+    width: 60vw;
+}
+
+#score-board {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    margin-right: 2.5rem;
+}
+
+#grid-container {
+    margin-top: 5rem;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-right: 10rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+#grid {
+    z-index: 1;
+    height: 320px;
+    width: 320px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#grid div {
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
 }
