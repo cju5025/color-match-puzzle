@@ -5,7 +5,7 @@ let score = 0
 const scoreDisplay = document.getElementById('score')
 
 const colors = [
-    'red', 
+    '#e62e00', 
     'pink',
     '#ff9933',
     'violet',
@@ -218,4 +218,4 @@ window.setInterval(function() {
     checkColumnForFour()
     checkColumnForThree()
     moveDown()
-}, 800)
+}, 500)
