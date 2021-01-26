@@ -5,7 +5,7 @@ let score = 0
 
 const colors = [
     'red', 
-    'yellow',
+    'pink',
     'orange',
     'purple',
     'green',
@@ -81,8 +81,24 @@ function dragEnd() {
     } 
 }
 
+function moveDown () {
+    for (i = 0; i < 55; i++) {
+        if (squares[i + width].style.backgroundColor === '') {
+            squares[i + width].style.backgroundColor = squares[i].style.backgroundColor
+            squares[i].style.backgroundColor = ''
+            const firstRow = [0, 1, 2, 3, 4, 5, 6, 7]
+            const isFirstRow = firstRow.includes(i)
+            if (isFirstRow && squares[i].style.backgroundColor === '') {
+                let randomColor = Math.floor(Math.random() * colors.length)
+                squares[i].style.backgroundColor = colors[randomColor]
+            }
+        }
+    }
+}
+
+
 function checkRowForThree () {
-    for (i = 0; i < 61; i++) {
+    for (i = 0; i < 62; i++) {
         let rowOfThree = [i, i + 1, i + 2]
         let decidedColor = squares[i].style.backgroundColor
         const isBlank = squares[i].style.backgroundColor === ''
@@ -185,10 +201,12 @@ function checkColumnForFive() {
 
 
 window.setInterval(function() {
+    moveDown()
     checkRowForFive()
     checkRowForFour()
     checkRowForThree()
     checkColumnForFive()
     checkColumnForFour()
     checkColumnForThree()
-}, 10)
+    moveDown()
+}, 800)
