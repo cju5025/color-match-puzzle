@@ -7,10 +7,10 @@ const scoreDisplay = document.getElementById('score')
 const colors = [
     'red', 
     'pink',
-    'orange',
-    'purple',
-    'green',
-    'blue'
+    '#ff9933',
+    'violet',
+    '#33cc33',
+    'salmon'
 ]
 
 function createBoard () {
