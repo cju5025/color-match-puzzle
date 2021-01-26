@@ -139,7 +139,7 @@ function checkRowForFive () {
 }
 
 function checkColumnForThree () {
-    for (i = 0; i < 47; i++) {
+    for (i = 0; i < 48; i++) {
         let columnOfThree = [i, i + width, i + width*2]
         let decidedColor = squares[i].style.backgroundColor
         const isBlank = squares[i].style.backgroundColor === ''
@@ -154,7 +154,7 @@ function checkColumnForThree () {
 }
 
 function checkColumnForFour() {
-    for (i = 0; i < 39; i++) {
+    for (i = 0; i < 40; i++) {
         let columnOfFour = [i, i + width, i + width*2, i + width*3]
         let decidedColor = squares[i].style.backgroundColor
         const isBlank = squares[i].style.backgroundColor === ''
@@ -169,7 +169,7 @@ function checkColumnForFour() {
 }
 
 function checkColumnForFive() {
-    for (i = 0; i < 31; i++) {
+    for (i = 0; i < 30; i++) {
         let columnOfFive = [i, i + width, i + width*2, i + width*3, i + width*4]
         let decidedColor = squares[i].style.backgroundColor
         const isBlank = squares[i].style.backgroundColor === ''
@@ -183,12 +183,6 @@ function checkColumnForFive() {
     }
 }
 
-checkRowForFive()
-checkRowForFour()
-checkRowForThree()
-checkColumnForFive()
-checkColumnForFour()
-checkColumnForThree()
 
 window.setInterval(function() {
     checkRowForFive()
